@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Student;
+use App\Form\StType;
 use App\Repository\StudentRepository;
 use phpDocumentor\Reflection\Types\Integer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -36,5 +37,20 @@ class StudentController extends AbstractController
         //return $this->render('student/list.html.twig', [
         //     'data' => $em,
         //]);
+    }
+
+    /**
+     * @Route("/addStudent", name="addStudent")
+     */
+    public function addStudent()
+    {
+        $student = new Student();
+        $form = $this->createForm(StType::class);
+        
+        
+        return $this->render('student/addS.html.twig', [
+            //elle est obligatoir de creer une view
+             'f' => $form->createView(),
+        ]);
     }
 }
