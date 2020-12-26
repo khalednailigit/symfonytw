@@ -1,0 +1,22 @@
+<a href="{{path('addMedecin')}}">Add medecin</a>
+<table>
+	{%for d in data %}
+		<tr>
+			<td>
+				{{d.id}}</td>
+			<td>
+				{{d.name}}</td>
+			<td>
+				{{d.surname}}</td>
+			<td>
+				{{d.adresse}}
+			</td>
+			<td>
+				<a href="{{path('deleteMedecin',{'id':d.id})}}">delete</a>
+			</td>
+			<td>
+				<a href="{{path('updateMedecin',{'id':d.id})}}">update</a>
+			</td>
+		</tr>
+		{%endfor%}
+	</table>
