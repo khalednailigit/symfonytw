@@ -1,0 +1,17 @@
+<table>
+	<tr>
+		<td>Name</td>
+		<td>Adress</td>
+		<td>Action</td>
+	</tr>
+	{% for p in f %}
+		<tr>
+			<td>
+				{{p.name}}</td>
+			<td>
+				{{p.adress}}</td>
+			<td><a href=''>Delete<a/></td>
+		</tr>
+	{% endfor %}
+
+</table>

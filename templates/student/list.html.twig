@@ -1,0 +1,16 @@
+<table>
+	{%for d in data %}
+		<tr>
+			<td>
+				{{d.id}}</td>
+			<td>
+				{{d.name}}</td>
+			<td>
+				{{d.adresse}}
+			</td>
+            <td>
+				<a href="{{path('X',{'id':d.id})}}">description</a>
+			</td>
+		</tr>
+		{%endfor%}
+	</table
