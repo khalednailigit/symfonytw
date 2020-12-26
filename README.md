@@ -1,1 +1,2 @@
 # symfonytw
+composer install
