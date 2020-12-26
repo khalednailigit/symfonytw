@@ -32,6 +32,11 @@ class Medecin
      */
     private $adresse;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $age;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class Medecin
     public function setAdresse(string $adresse): self
     {
         $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    public function getAge(): ?int
+    {
+        return $this->age;
+    }
+
+    public function setAge(?int $age): self
+    {
+        $this->age = $age;
 
         return $this;
     }
