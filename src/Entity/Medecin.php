@@ -37,6 +37,11 @@ class Medecin
      */
     private $age;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Hopital::class, inversedBy="medecins")
+     */
+    private $hopital;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +91,18 @@ class Medecin
     public function setAge(?int $age): self
     {
         $this->age = $age;
+
+        return $this;
+    }
+
+    public function getHopital(): ?Hopital
+    {
+        return $this->hopital;
+    }
+
+    public function setHopital(?Hopital $hopital): self
+    {
+        $this->hopital = $hopital;
 
         return $this;
     }

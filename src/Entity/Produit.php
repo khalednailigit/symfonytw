@@ -32,6 +32,11 @@ class Produit
      */
     private $prixProduit;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Magasin::class, inversedBy="produits")
+     */
+    private $idmagasin;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class Produit
     public function setPrixProduit(int $prixProduit): self
     {
         $this->prixProduit = $prixProduit;
+
+        return $this;
+    }
+
+    public function getIdmagasin(): ?Magasin
+    {
+        return $this->idmagasin;
+    }
+
+    public function setIdmagasin(?Magasin $idmagasin): self
+    {
+        $this->idmagasin = $idmagasin;
 
         return $this;
     }
