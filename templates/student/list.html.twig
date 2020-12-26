@@ -1,3 +1,4 @@
+<a href="{{path('addStudent')}}">Add Student</a>
 <table>
 	{%for d in data %}
 		<tr>
@@ -8,9 +9,15 @@
 			<td>
 				{{d.adresse}}
 			</td>
-            <td>
+			<td>
 				<a href="{{path('X',{'id':d.id})}}">description</a>
+			</td>
+			<td>
+				<a href="{{path('deleteStudent',{'id':d.id})}}">delete</a>
+			</td>
+			<td>
+				<a href="{{path('updateStudent',{'id':d.id})}}">update</a>
 			</td>
 		</tr>
 		{%endfor%}
-	</table
+	</table>

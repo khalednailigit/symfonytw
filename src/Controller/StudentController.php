@@ -83,4 +83,27 @@ class StudentController extends AbstractController
         $em->flush();
         return $this->redirectToRoute('getStudents');
     }
+
+    /**
+     * @Route("/updateStudent/{id}", name="updateStudent")
+     */
+    public function updateStudent(Request $request, $id)
+    {
+        //$student = new Student();
+        $student = $this->getDoctrine()
+            ->getRepository(Student::class)
+            ->find($id);
+        $form = $this->createForm(StType::class, $student);
+        $form->handleRequest($request);
+        if ($form->isSubmitted()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->flush();
+            return $this->redirectToRoute('getStudents');
+        }
+
+        return $this->render('student/updatestudent.html.twig', [
+            //elle est obligatoir de creer une view
+            'f' => $form->createView(),
+        ]);
+    }
 }
